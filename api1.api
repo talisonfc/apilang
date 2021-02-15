@@ -1,0 +1,5 @@
+model Customer { 
+  property name
+  property cpf
+  property age
+}
