@@ -30,5 +30,12 @@ public class APILangBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProperty(APILangParser.PropertyContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPropertyDef(APILangParser.PropertyDefContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitTypeDef(APILangParser.TypeDefContext ctx) { return visitChildren(ctx); }
 }

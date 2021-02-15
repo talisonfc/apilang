@@ -39,13 +39,25 @@ public class APILangBaseListener implements APILangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProperty(APILangParser.PropertyContext ctx) { }
+	@Override public void enterPropertyDef(APILangParser.PropertyDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProperty(APILangParser.PropertyContext ctx) { }
+	@Override public void exitPropertyDef(APILangParser.PropertyDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTypeDef(APILangParser.TypeDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTypeDef(APILangParser.TypeDefContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

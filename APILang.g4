@@ -4,7 +4,11 @@ prog: model+ EOF ;
 
 model: 'model' NAME '{' property+ '}' ;
 
-property: 'property' NAME;
+property: 'property' NAME                     # propertyDef
+  | property 'of type' TYPE                   # typeDef
+  ;
+
+TYPE: 'String' | 'Integer' | 'Boolean';
 
 NAME: [a-zA-Z]+ ;
 

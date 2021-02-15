@@ -1,5 +1,5 @@
 model Customer { 
-  property name
-  property cpf
-  property age
+  property name of type String
+  property cpf of type Integer
+  property age of type Integer
 }

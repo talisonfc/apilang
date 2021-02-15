@@ -22,9 +22,17 @@ public interface APILangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitModel(APILangParser.ModelContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link APILangParser#property}.
+	 * Visit a parse tree produced by the {@code propertyDef}
+	 * labeled alternative in {@link APILangParser#property}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitProperty(APILangParser.PropertyContext ctx);
+	T visitPropertyDef(APILangParser.PropertyDefContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code typeDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypeDef(APILangParser.TypeDefContext ctx);
 }

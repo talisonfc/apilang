@@ -27,13 +27,27 @@ public interface APILangListener extends ParseTreeListener {
 	 */
 	void exitModel(APILangParser.ModelContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link APILangParser#property}.
+	 * Enter a parse tree produced by the {@code propertyDef}
+	 * labeled alternative in {@link APILangParser#property}.
 	 * @param ctx the parse tree
 	 */
-	void enterProperty(APILangParser.PropertyContext ctx);
+	void enterPropertyDef(APILangParser.PropertyDefContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link APILangParser#property}.
+	 * Exit a parse tree produced by the {@code propertyDef}
+	 * labeled alternative in {@link APILangParser#property}.
 	 * @param ctx the parse tree
 	 */
-	void exitProperty(APILangParser.PropertyContext ctx);
+	void exitPropertyDef(APILangParser.PropertyDefContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code typeDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeDef(APILangParser.TypeDefContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code typeDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeDef(APILangParser.TypeDefContext ctx);
 }
