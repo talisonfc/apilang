@@ -39,6 +39,18 @@ public interface APILangListener extends ParseTreeListener {
 	 */
 	void exitPropertyDef(APILangParser.PropertyDefContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code constraintsDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstraintsDef(APILangParser.ConstraintsDefContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code constraintsDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstraintsDef(APILangParser.ConstraintsDefContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code typeDef}
 	 * labeled alternative in {@link APILangParser#property}.
 	 * @param ctx the parse tree
@@ -50,4 +62,14 @@ public interface APILangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTypeDef(APILangParser.TypeDefContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link APILangParser#constraints}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstraints(APILangParser.ConstraintsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link APILangParser#constraints}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstraints(APILangParser.ConstraintsContext ctx);
 }

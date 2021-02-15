@@ -51,6 +51,18 @@ public class APILangBaseListener implements APILangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterConstraintsDef(APILangParser.ConstraintsDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstraintsDef(APILangParser.ConstraintsDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterTypeDef(APILangParser.TypeDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -58,6 +70,18 @@ public class APILangBaseListener implements APILangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTypeDef(APILangParser.TypeDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstraints(APILangParser.ConstraintsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstraints(APILangParser.ConstraintsContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

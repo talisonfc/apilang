@@ -25,7 +25,7 @@ public class Eval extends APILangBaseVisitor<String> {
     currentProperties = new ArrayList<Property>();
 
     for (APILangParser.PropertyContext prop : ctx.property()) {
-      props += "\t" + visit(prop) + "\n";
+      props += visit(prop) + "\n";
     }
 
     String gettersAndSetters = String.join("\n\n", generateGettersAndSetters());
@@ -41,8 +41,26 @@ public class Eval extends APILangBaseVisitor<String> {
     String propName = visit(ctx.property());
     String type = ctx.TYPE() != null ? ctx.TYPE().getText() : "String";
     currentProperties.add(new Property(propName, type));
-    return String.format("private %s %s;\n", type, propName);
+    return "\t" + String.format("private %s %s;\n", type, propName);
   }
+
+  public String visitConstraintsDef(APILangParser.ConstraintsDefContext ctx){
+
+    String constraints = "";
+
+    int i = 0;
+    for(APILangParser.ConstraintsContext contraint: ctx.constraints()){
+      constraints += "\t@" + contraint.getText() + "\n";
+    }
+
+    return constraints + visit(ctx.property());
+  }
+
+  // public String visitConstraints(APILangParser.ConstraintsContext ctx) { 
+  //   String constraints = "";
+  //   for(APILangParser.ConstraintsContext)
+  //   return visitChildren(ctx); 
+  // }
 
   public List<String> generateGettersAndSetters() {
 
