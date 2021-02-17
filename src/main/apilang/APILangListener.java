@@ -1,4 +1,5 @@
-// Generated from APILang.g4 by ANTLR 4.9.1
+// Generated from src/main/apilang/APILang.g4 by ANTLR 4.9.1
+package apilang;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -17,15 +18,41 @@ public interface APILangListener extends ParseTreeListener {
 	 */
 	void exitProg(APILangParser.ProgContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link APILangParser#model}.
+	 * Enter a parse tree produced by the {@code modelPackageName}
+	 * labeled alternative in {@link APILangParser#model}.
 	 * @param ctx the parse tree
 	 */
-	void enterModel(APILangParser.ModelContext ctx);
+	void enterModelPackageName(APILangParser.ModelPackageNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link APILangParser#model}.
+	 * Exit a parse tree produced by the {@code modelPackageName}
+	 * labeled alternative in {@link APILangParser#model}.
 	 * @param ctx the parse tree
 	 */
-	void exitModel(APILangParser.ModelContext ctx);
+	void exitModelPackageName(APILangParser.ModelPackageNameContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code modelName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void enterModelName(APILangParser.ModelNameContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code modelName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void exitModelName(APILangParser.ModelNameContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code modelProperties}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void enterModelProperties(APILangParser.ModelPropertiesContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code modelProperties}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void exitModelProperties(APILangParser.ModelPropertiesContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code propertyDef}
 	 * labeled alternative in {@link APILangParser#property}.

@@ -1,4 +1,5 @@
-// Generated from APILang.g4 by ANTLR 4.9.1
+// Generated from src/main/apilang/APILang.g4 by ANTLR 4.9.1
+package apilang;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -27,13 +28,37 @@ public class APILangBaseListener implements APILangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterModel(APILangParser.ModelContext ctx) { }
+	@Override public void enterModelPackageName(APILangParser.ModelPackageNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitModel(APILangParser.ModelContext ctx) { }
+	@Override public void exitModelPackageName(APILangParser.ModelPackageNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterModelName(APILangParser.ModelNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitModelName(APILangParser.ModelNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterModelProperties(APILangParser.ModelPropertiesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitModelProperties(APILangParser.ModelPropertiesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

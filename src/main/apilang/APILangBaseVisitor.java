@@ -1,4 +1,5 @@
-// Generated from APILang.g4 by ANTLR 4.9.1
+// Generated from src/main/apilang/APILang.g4 by ANTLR 4.9.1
+package apilang;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -23,7 +24,21 @@ public class APILangBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitModel(APILangParser.ModelContext ctx) { return visitChildren(ctx); }
+	@Override public T visitModelPackageName(APILangParser.ModelPackageNameContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitModelName(APILangParser.ModelNameContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitModelProperties(APILangParser.ModelPropertiesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

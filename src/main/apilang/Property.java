@@ -1,3 +1,5 @@
+package apilang;
+
 public class Property {
   
   private String name;

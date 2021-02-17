@@ -1,5 +1,0 @@
-model Customer { 
-  property name of type String
-  property cpf of type Integer with constraint unique
-  property age of type Integer with constraint required unique
-}

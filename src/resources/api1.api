@@ -1,0 +1,13 @@
+model Customer package br.com.fotonica.apilangtest.model { 
+  property name of type String
+  property cpf of type Integer with constraint unique
+  property age of type Integer with constraint required unique
+}
+
+model Product package br.com.fotonica.apilangtest.model { 
+  property name of type String with constraint unique
+}
+
+model ShopCart package br.com.fotonica.apilangtest.model {
+  property orders of type List<Product> with constraint manyToMany
+}

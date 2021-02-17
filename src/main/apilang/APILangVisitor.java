@@ -1,4 +1,5 @@
-// Generated from APILang.g4 by ANTLR 4.9.1
+// Generated from src/main/apilang/APILang.g4 by ANTLR 4.9.1
+package apilang;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -16,11 +17,26 @@ public interface APILangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProg(APILangParser.ProgContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link APILangParser#model}.
+	 * Visit a parse tree produced by the {@code modelPackageName}
+	 * labeled alternative in {@link APILangParser#model}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitModel(APILangParser.ModelContext ctx);
+	T visitModelPackageName(APILangParser.ModelPackageNameContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code modelName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitModelName(APILangParser.ModelNameContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code modelProperties}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitModelProperties(APILangParser.ModelPropertiesContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code propertyDef}
 	 * labeled alternative in {@link APILangParser#property}.
