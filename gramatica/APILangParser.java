@@ -17,8 +17,8 @@ public class APILangParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, T__12=13, TYPE=14, NAME=15, PACKAGE_NAME=16, 
-		FOLDER_NAME=17, WS=18;
+		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, TYPE=16, NAME=17, 
+		PACKAGE_NAME=18, WS=19;
 	public static final int
 		RULE_prog = 0, RULE_model = 1, RULE_property = 2, RULE_constraints = 3;
 	private static String[] makeRuleNames() {
@@ -30,16 +30,16 @@ public class APILangParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'model'", "'package'", "'{'", "'}'", "'folder'", "'property'", 
-			"'of type'", "'with constraint'", "'required'", "'unique'", "'oneToMany'", 
-			"'manyToMany'", "'manyToOne'"
+			null, "'model'", "'package'", "'table'", "'schema'", "'{'", "'}'", "'property'", 
+			"'of type'", "'of model'", "'with constraint'", "'required'", "'unique'", 
+			"'oneToMany'", "'manyToMany'", "'manyToOne'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, "TYPE", "NAME", "PACKAGE_NAME", "FOLDER_NAME", "WS"
+			null, null, null, null, "TYPE", "NAME", "PACKAGE_NAME", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -135,7 +135,7 @@ public class APILangParser extends Parser {
 				setState(11); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==T__0 || _la==T__4 );
+			} while ( _la==T__0 );
 			setState(13);
 			match(EOF);
 			}
@@ -189,6 +189,21 @@ public class APILangParser extends Parser {
 			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitModelName(this);
 		}
 	}
+	public static class ModelTableNameContext extends ModelContext {
+		public ModelContext model() {
+			return getRuleContext(ModelContext.class,0);
+		}
+		public TerminalNode NAME() { return getToken(APILangParser.NAME, 0); }
+		public ModelTableNameContext(ModelContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof APILangListener ) ((APILangListener)listener).enterModelTableName(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitModelTableName(this);
+		}
+	}
 	public static class ModelPropertiesContext extends ModelContext {
 		public ModelContext model() {
 			return getRuleContext(ModelContext.class,0);
@@ -209,16 +224,19 @@ public class APILangParser extends Parser {
 			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitModelProperties(this);
 		}
 	}
-	public static class FolderNameContext extends ModelContext {
-		public TerminalNode FOLDER_NAME() { return getToken(APILangParser.FOLDER_NAME, 0); }
-		public FolderNameContext(ModelContext ctx) { copyFrom(ctx); }
+	public static class ModelSchemaNameContext extends ModelContext {
+		public ModelContext model() {
+			return getRuleContext(ModelContext.class,0);
+		}
+		public TerminalNode NAME() { return getToken(APILangParser.NAME, 0); }
+		public ModelSchemaNameContext(ModelContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof APILangListener ) ((APILangListener)listener).enterFolderName(this);
+			if ( listener instanceof APILangListener ) ((APILangListener)listener).enterModelSchemaName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitFolderName(this);
+			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitModelSchemaName(this);
 		}
 	}
 
@@ -238,91 +256,96 @@ public class APILangParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(20);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case T__0:
-				{
-				_localctx = new ModelNameContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
+			{
+			_localctx = new ModelNameContext(_localctx);
+			_ctx = _localctx;
+			_prevctx = _localctx;
 
-				setState(16);
-				match(T__0);
-				setState(17);
-				match(NAME);
-				}
-				break;
-			case T__4:
-				{
-				_localctx = new FolderNameContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(18);
-				match(T__4);
-				setState(19);
-				match(FOLDER_NAME);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
+			setState(16);
+			match(T__0);
+			setState(17);
+			match(NAME);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(36);
+			setState(39);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(34);
+					setState(37);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 					case 1:
 						{
 						_localctx = new ModelPackageNameContext(new ModelContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_model);
-						setState(22);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(23);
+						setState(19);
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						setState(20);
 						match(T__1);
-						setState(24);
+						setState(21);
 						match(PACKAGE_NAME);
 						}
 						break;
 					case 2:
 						{
-						_localctx = new ModelPropertiesContext(new ModelContext(_parentctx, _parentState));
+						_localctx = new ModelTableNameContext(new ModelContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_model);
+						setState(22);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(23);
+						match(T__2);
+						setState(24);
+						match(NAME);
+						}
+						break;
+					case 3:
+						{
+						_localctx = new ModelSchemaNameContext(new ModelContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_model);
 						setState(25);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
 						setState(26);
-						match(T__2);
-						setState(28); 
+						match(T__3);
+						setState(27);
+						match(NAME);
+						}
+						break;
+					case 4:
+						{
+						_localctx = new ModelPropertiesContext(new ModelContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_model);
+						setState(28);
+						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
+						setState(29);
+						match(T__4);
+						setState(31); 
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 						do {
 							{
 							{
-							setState(27);
+							setState(30);
 							property(0);
 							}
 							}
-							setState(30); 
+							setState(33); 
 							_errHandler.sync(this);
 							_la = _input.LA(1);
-						} while ( _la==T__5 );
-						setState(32);
-						match(T__3);
+						} while ( _la==T__6 );
+						setState(35);
+						match(T__5);
 						}
 						break;
 					}
 					} 
 				}
-				setState(38);
+				setState(41);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
 			}
 		}
@@ -346,6 +369,36 @@ public class APILangParser extends Parser {
 		public PropertyContext() { }
 		public void copyFrom(PropertyContext ctx) {
 			super.copyFrom(ctx);
+		}
+	}
+	public static class DefinedModelDefContext extends PropertyContext {
+		public PropertyContext property() {
+			return getRuleContext(PropertyContext.class,0);
+		}
+		public TerminalNode NAME() { return getToken(APILangParser.NAME, 0); }
+		public DefinedModelDefContext(PropertyContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof APILangListener ) ((APILangListener)listener).enterDefinedModelDef(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitDefinedModelDef(this);
+		}
+	}
+	public static class PrimitiveTypeDefContext extends PropertyContext {
+		public PropertyContext property() {
+			return getRuleContext(PropertyContext.class,0);
+		}
+		public TerminalNode TYPE() { return getToken(APILangParser.TYPE, 0); }
+		public PrimitiveTypeDefContext(PropertyContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof APILangListener ) ((APILangListener)listener).enterPrimitiveTypeDef(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitPrimitiveTypeDef(this);
 		}
 	}
 	public static class PropertyDefContext extends PropertyContext {
@@ -380,21 +433,6 @@ public class APILangParser extends Parser {
 			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitConstraintsDef(this);
 		}
 	}
-	public static class TypeDefContext extends PropertyContext {
-		public PropertyContext property() {
-			return getRuleContext(PropertyContext.class,0);
-		}
-		public TerminalNode TYPE() { return getToken(APILangParser.TYPE, 0); }
-		public TypeDefContext(PropertyContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof APILangListener ) ((APILangListener)listener).enterTypeDef(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof APILangListener ) ((APILangListener)listener).exitTypeDef(this);
-		}
-	}
 
 	public final PropertyContext property() throws RecognitionException {
 		return property(0);
@@ -416,44 +454,56 @@ public class APILangParser extends Parser {
 			_ctx = _localctx;
 			_prevctx = _localctx;
 
-			setState(40);
-			match(T__5);
-			setState(41);
+			setState(43);
+			match(T__6);
+			setState(44);
 			match(NAME);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(55);
+			setState(61);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(53);
+					setState(59);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 					case 1:
 						{
-						_localctx = new TypeDefContext(new PropertyContext(_parentctx, _parentState));
+						_localctx = new PrimitiveTypeDefContext(new PropertyContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_property);
-						setState(43);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(44);
-						match(T__6);
-						setState(45);
+						setState(46);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(47);
+						match(T__7);
+						setState(48);
 						match(TYPE);
 						}
 						break;
 					case 2:
 						{
+						_localctx = new DefinedModelDefContext(new PropertyContext(_parentctx, _parentState));
+						pushNewRecursionContext(_localctx, _startState, RULE_property);
+						setState(49);
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						setState(50);
+						match(T__8);
+						setState(51);
+						match(NAME);
+						}
+						break;
+					case 3:
+						{
 						_localctx = new ConstraintsDefContext(new PropertyContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_property);
-						setState(46);
+						setState(52);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(47);
-						match(T__7);
-						setState(49); 
+						setState(53);
+						match(T__9);
+						setState(55); 
 						_errHandler.sync(this);
 						_alt = 1;
 						do {
@@ -461,7 +511,7 @@ public class APILangParser extends Parser {
 							case 1:
 								{
 								{
-								setState(48);
+								setState(54);
 								constraints();
 								}
 								}
@@ -469,18 +519,18 @@ public class APILangParser extends Parser {
 							default:
 								throw new NoViableAltException(this);
 							}
-							setState(51); 
+							setState(57); 
 							_errHandler.sync(this);
-							_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
+							_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 						} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 						}
 						break;
 					}
 					} 
 				}
-				setState(57);
+				setState(63);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			}
 			}
 		}
@@ -517,9 +567,9 @@ public class APILangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(58);
+			setState(64);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -552,14 +602,9 @@ public class APILangParser extends Parser {
 	private boolean model_sempred(ModelContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 3);
+			return precpred(_ctx, 4);
 		case 1:
-			return precpred(_ctx, 2);
-		}
-		return true;
-	}
-	private boolean property_sempred(PropertyContext _localctx, int predIndex) {
-		switch (predIndex) {
+			return precpred(_ctx, 3);
 		case 2:
 			return precpred(_ctx, 2);
 		case 3:
@@ -567,25 +612,37 @@ public class APILangParser extends Parser {
 		}
 		return true;
 	}
+	private boolean property_sempred(PropertyContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 4:
+			return precpred(_ctx, 3);
+		case 5:
+			return precpred(_ctx, 2);
+		case 6:
+			return precpred(_ctx, 1);
+		}
+		return true;
+	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24?\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\25E\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\3\2\6\2\f\n\2\r\2\16\2\r\3\2\3\2\3\3\3\3\3\3\3\3\3"+
-		"\3\5\3\27\n\3\3\3\3\3\3\3\3\3\3\3\3\3\6\3\37\n\3\r\3\16\3 \3\3\3\3\7\3"+
-		"%\n\3\f\3\16\3(\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\6\4\64\n"+
-		"\4\r\4\16\4\65\7\48\n\4\f\4\16\4;\13\4\3\5\3\5\3\5\2\4\4\6\6\2\4\6\b\2"+
-		"\3\3\2\13\17\2B\2\13\3\2\2\2\4\26\3\2\2\2\6)\3\2\2\2\b<\3\2\2\2\n\f\5"+
-		"\4\3\2\13\n\3\2\2\2\f\r\3\2\2\2\r\13\3\2\2\2\r\16\3\2\2\2\16\17\3\2\2"+
-		"\2\17\20\7\2\2\3\20\3\3\2\2\2\21\22\b\3\1\2\22\23\7\3\2\2\23\27\7\21\2"+
-		"\2\24\25\7\7\2\2\25\27\7\23\2\2\26\21\3\2\2\2\26\24\3\2\2\2\27&\3\2\2"+
-		"\2\30\31\f\5\2\2\31\32\7\4\2\2\32%\7\22\2\2\33\34\f\4\2\2\34\36\7\5\2"+
-		"\2\35\37\5\6\4\2\36\35\3\2\2\2\37 \3\2\2\2 \36\3\2\2\2 !\3\2\2\2!\"\3"+
-		"\2\2\2\"#\7\6\2\2#%\3\2\2\2$\30\3\2\2\2$\33\3\2\2\2%(\3\2\2\2&$\3\2\2"+
-		"\2&\'\3\2\2\2\'\5\3\2\2\2(&\3\2\2\2)*\b\4\1\2*+\7\b\2\2+,\7\21\2\2,9\3"+
-		"\2\2\2-.\f\4\2\2./\7\t\2\2/8\7\20\2\2\60\61\f\3\2\2\61\63\7\n\2\2\62\64"+
-		"\5\b\5\2\63\62\3\2\2\2\64\65\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\668\3"+
-		"\2\2\2\67-\3\2\2\2\67\60\3\2\2\28;\3\2\2\29\67\3\2\2\29:\3\2\2\2:\7\3"+
-		"\2\2\2;9\3\2\2\2<=\t\2\2\2=\t\3\2\2\2\n\r\26 $&\65\679";
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\6\3\"\n\3\r\3\16\3#\3\3"+
+		"\3\3\7\3(\n\3\f\3\16\3+\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
+		"\4\3\4\3\4\6\4:\n\4\r\4\16\4;\7\4>\n\4\f\4\16\4A\13\4\3\5\3\5\3\5\2\4"+
+		"\4\6\6\2\4\6\b\2\3\3\2\r\21\2J\2\13\3\2\2\2\4\21\3\2\2\2\6,\3\2\2\2\b"+
+		"B\3\2\2\2\n\f\5\4\3\2\13\n\3\2\2\2\f\r\3\2\2\2\r\13\3\2\2\2\r\16\3\2\2"+
+		"\2\16\17\3\2\2\2\17\20\7\2\2\3\20\3\3\2\2\2\21\22\b\3\1\2\22\23\7\3\2"+
+		"\2\23\24\7\23\2\2\24)\3\2\2\2\25\26\f\6\2\2\26\27\7\4\2\2\27(\7\24\2\2"+
+		"\30\31\f\5\2\2\31\32\7\5\2\2\32(\7\23\2\2\33\34\f\4\2\2\34\35\7\6\2\2"+
+		"\35(\7\23\2\2\36\37\f\3\2\2\37!\7\7\2\2 \"\5\6\4\2! \3\2\2\2\"#\3\2\2"+
+		"\2#!\3\2\2\2#$\3\2\2\2$%\3\2\2\2%&\7\b\2\2&(\3\2\2\2\'\25\3\2\2\2\'\30"+
+		"\3\2\2\2\'\33\3\2\2\2\'\36\3\2\2\2(+\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*\5\3"+
+		"\2\2\2+)\3\2\2\2,-\b\4\1\2-.\7\t\2\2./\7\23\2\2/?\3\2\2\2\60\61\f\5\2"+
+		"\2\61\62\7\n\2\2\62>\7\22\2\2\63\64\f\4\2\2\64\65\7\13\2\2\65>\7\23\2"+
+		"\2\66\67\f\3\2\2\679\7\f\2\28:\5\b\5\298\3\2\2\2:;\3\2\2\2;9\3\2\2\2;"+
+		"<\3\2\2\2<>\3\2\2\2=\60\3\2\2\2=\63\3\2\2\2=\66\3\2\2\2>A\3\2\2\2?=\3"+
+		"\2\2\2?@\3\2\2\2@\7\3\2\2\2A?\3\2\2\2BC\t\2\2\2C\t\3\2\2\2\t\r#\');=?";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

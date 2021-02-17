@@ -31,12 +31,47 @@ public interface APILangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitModelName(APILangParser.ModelNameContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code modelTableName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitModelTableName(APILangParser.ModelTableNameContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code modelProperties}
 	 * labeled alternative in {@link APILangParser#model}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitModelProperties(APILangParser.ModelPropertiesContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code modelSchemaName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitModelSchemaName(APILangParser.ModelSchemaNameContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code modelPrimaryKeyName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitModelPrimaryKeyName(APILangParser.ModelPrimaryKeyNameContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code definedModelDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefinedModelDef(APILangParser.DefinedModelDefContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code primitiveTypeDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrimitiveTypeDef(APILangParser.PrimitiveTypeDefContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code propertyDef}
 	 * labeled alternative in {@link APILangParser#property}.
@@ -51,13 +86,6 @@ public interface APILangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitConstraintsDef(APILangParser.ConstraintsDefContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code typeDef}
-	 * labeled alternative in {@link APILangParser#property}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTypeDef(APILangParser.TypeDefContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link APILangParser#constraints}.
 	 * @param ctx the parse tree

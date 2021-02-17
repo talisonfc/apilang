@@ -38,11 +38,6 @@ public class Eval extends APILangBaseVisitor<String> {
     }
     return prog;
   }
-
-  public String visitModelPackageName(APILangParser.ModelPackageNameContext ctx) { 
-    String packageName = String.format("package %s;\n", ctx.PACKAGE_NAME().getText());
-    return packageName + visit(ctx.model());
-  }
 	
   public String visitModelName(APILangParser.ModelNameContext ctx) { 
     String modelTemplate = TemplateUtil.readFile("src/main/apilang/templates/ModelTemplate.java");
@@ -65,6 +60,29 @@ public class Eval extends APILangBaseVisitor<String> {
     // TemplateUtil.writeFile(repositoryTemplate, String.format("src/resources/output/%sRepository.java", modelName));
 
     return modelTemplate;
+  }
+
+  public String visitModelPackageName(APILangParser.ModelPackageNameContext ctx) { 
+    String packageName = String.format("package %s;\n", ctx.PACKAGE_NAME().getText());
+    return packageName + visit(ctx.model());
+  }
+
+  public String visitModelTableName(APILangParser.ModelTableNameContext ctx) { 
+    String modelTemplate = visit(ctx.model());
+    modelTemplate = modelTemplate.replace("tableName", ctx.NAME().getText());
+    return modelTemplate; 
+  }
+
+  public String visitModelSchemaName(APILangParser.ModelSchemaNameContext ctx) { 
+    String modelTemplate = visit(ctx.model());
+    modelTemplate = modelTemplate.replace("schemaName", ctx.NAME().getText());
+    return modelTemplate; 
+  }
+
+  public String visitModelPrimaryKeyName(APILangParser.ModelPrimaryKeyNameContext ctx) { 
+    String modelTemplate = visit(ctx.model());
+    modelTemplate = modelTemplate.replace("primaryKeyName", ctx.NAME().getText());
+    return modelTemplate; 
   }
 	
   public String visitModelProperties(APILangParser.ModelPropertiesContext ctx) { 
@@ -94,16 +112,22 @@ public class Eval extends APILangBaseVisitor<String> {
     return ctx.NAME().getText();
   }
 
-  public String visitTypeDef(APILangParser.TypeDefContext ctx) {
+  public String visitPrimitiveTypeDef(APILangParser.PrimitiveTypeDefContext ctx) {
     String propName = visit(ctx.property());
     String type = ctx.TYPE() != null ? ctx.TYPE().getText() : "String";
 
     if(type.startsWith("List")){
       addDependency("List");
+      type = type.replace(">", "Model>");
     }
 
     currentProperties.add(new Property(propName, type));
     return "\t" + String.format("private %s %s;\n", type, propName);
+  }
+
+  public String visitDefinedModelDef(APILangParser.DefinedModelDefContext ctx) { 
+    String propName = visit(ctx.property());
+    return "\t" + String.format("private %sModel %s;\n", ctx.NAME().getText(), propName);
   }
 
   public String visitConstraintsDef(APILangParser.ConstraintsDefContext ctx){

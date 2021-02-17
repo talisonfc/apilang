@@ -51,6 +51,18 @@ public class APILangBaseListener implements APILangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterModelTableName(APILangParser.ModelTableNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitModelTableName(APILangParser.ModelTableNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterModelProperties(APILangParser.ModelPropertiesContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -63,13 +75,37 @@ public class APILangBaseListener implements APILangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFolderName(APILangParser.FolderNameContext ctx) { }
+	@Override public void enterModelSchemaName(APILangParser.ModelSchemaNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFolderName(APILangParser.FolderNameContext ctx) { }
+	@Override public void exitModelSchemaName(APILangParser.ModelSchemaNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDefinedModelDef(APILangParser.DefinedModelDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDefinedModelDef(APILangParser.DefinedModelDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPrimitiveTypeDef(APILangParser.PrimitiveTypeDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrimitiveTypeDef(APILangParser.PrimitiveTypeDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -94,18 +130,6 @@ public class APILangBaseListener implements APILangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitConstraintsDef(APILangParser.ConstraintsDefContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTypeDef(APILangParser.TypeDefContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTypeDef(APILangParser.TypeDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

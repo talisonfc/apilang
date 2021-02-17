@@ -41,6 +41,18 @@ public interface APILangListener extends ParseTreeListener {
 	 */
 	void exitModelName(APILangParser.ModelNameContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code modelTableName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void enterModelTableName(APILangParser.ModelTableNameContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code modelTableName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void exitModelTableName(APILangParser.ModelTableNameContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code modelProperties}
 	 * labeled alternative in {@link APILangParser#model}.
 	 * @param ctx the parse tree
@@ -53,17 +65,41 @@ public interface APILangListener extends ParseTreeListener {
 	 */
 	void exitModelProperties(APILangParser.ModelPropertiesContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code folderName}
+	 * Enter a parse tree produced by the {@code modelSchemaName}
 	 * labeled alternative in {@link APILangParser#model}.
 	 * @param ctx the parse tree
 	 */
-	void enterFolderName(APILangParser.FolderNameContext ctx);
+	void enterModelSchemaName(APILangParser.ModelSchemaNameContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code folderName}
+	 * Exit a parse tree produced by the {@code modelSchemaName}
 	 * labeled alternative in {@link APILangParser#model}.
 	 * @param ctx the parse tree
 	 */
-	void exitFolderName(APILangParser.FolderNameContext ctx);
+	void exitModelSchemaName(APILangParser.ModelSchemaNameContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code definedModelDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefinedModelDef(APILangParser.DefinedModelDefContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code definedModelDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefinedModelDef(APILangParser.DefinedModelDefContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code primitiveTypeDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimitiveTypeDef(APILangParser.PrimitiveTypeDefContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code primitiveTypeDef}
+	 * labeled alternative in {@link APILangParser#property}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimitiveTypeDef(APILangParser.PrimitiveTypeDefContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code propertyDef}
 	 * labeled alternative in {@link APILangParser#property}.
@@ -88,18 +124,6 @@ public interface APILangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitConstraintsDef(APILangParser.ConstraintsDefContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code typeDef}
-	 * labeled alternative in {@link APILangParser#property}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypeDef(APILangParser.TypeDefContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code typeDef}
-	 * labeled alternative in {@link APILangParser#property}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypeDef(APILangParser.TypeDefContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link APILangParser#constraints}.
 	 * @param ctx the parse tree

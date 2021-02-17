@@ -1,13 +1,29 @@
-model Customer package br.com.fotonica.apilangtest.model { 
+model UnitMeasurement package br.com.fotonica.apilangtest.model table unit_measurement schema public primary key id_unit_measurement{
+  property initials of type String
   property name of type String
-  property cpf of type Integer with constraint unique
-  property age of type Integer with constraint required unique
 }
 
-model Product package br.com.fotonica.apilangtest.model { 
+model ValueWithUnit package br.com.fotonica.apilangtest.model { 
+  property value of type Double
+  property unitMeasurement of model UnitMeasurement
+}
+
+model Category package br.com.fotonica.apilangtest.model { 
+  property subcategory of type List<Category>
+  property isCategory of type Boolean
+  property icon of type String
+} 
+
+model Brand package br.com.fotonica.apilangtest.model { 
+  property name of type String
+  property description of type String
+}
+
+model Product package br.com.fotonica.apilangtest.model table product schema public primary key id_product { 
   property name of type String with constraint unique
-}
-
-model ShopCart package br.com.fotonica.apilangtest.model {
-  property orders of type List<Product> with constraint manyToMany
+  property description of type String
+  property barCode of type String
+  property weight of model ValueWithUnit
+  property storageTips of type String
+  property category of model Category 
 }

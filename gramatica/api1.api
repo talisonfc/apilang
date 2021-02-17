@@ -1,15 +1,14 @@
-folder /Users/talisoncosta/eclipse-workspace/apilangtest/src/main/java/br/com/fotonica/apilangtest/model
-
-model Customer package br.com.fotonica { 
+model Customer package br.com.fotonica.apilangtest.model { 
   property name of type String
   property cpf of type Integer with constraint unique
   property age of type Integer with constraint required unique
 }
 
-model Product { 
+model Product package br.com.fotonica.apilangtest.model { 
   property name of type String with constraint unique
 }
 
-model ShopCart {
-  property orders of type List<Product> with constraint oneToMany
+model ShopCart package br.com.fotonica.apilangtest.model {
+  property orders of type List<Product> with constraint manyToMany
+  property customer of model Customer
 }
