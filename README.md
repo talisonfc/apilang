@@ -29,16 +29,16 @@ Honoré Vicente Cesário
 
 **FEVEREIRO/ 2021**
 
-`	`**Objetivos** 
+**Objetivos** 
 
 
-`	`O objetivo da linguagem APILang é gerar as classes de modelo de uma API, com anotações JPA (Java Persistence Application), a partir das especificações de restrições e relacionamentos especificados nos requisitos da aplicação. A linguagem deve servir para descrever o domínio de uma API e gerar a versão inicial das classes de modelo.
+O objetivo da linguagem APILang é gerar as classes de modelo de uma API, com anotações JPA (Java Persistence Application), a partir das especificações de restrições e relacionamentos especificados nos requisitos da aplicação. A linguagem deve servir para descrever o domínio de uma API e gerar a versão inicial das classes de modelo.
 
 **Motivação**
 
-`	`O diagrama de classe permite especificar as propriedades e métodos de um determinado modelo, porém não fornece meios para descrever restrições de banco, e validação de dados. Tais limitações são supridas por outras ferramentas, como diagrama entidade, relacionamento e documentos de especificação de requisitos.
+O diagrama de classe permite especificar as propriedades e métodos de um determinado modelo, porém não fornece meios para descrever restrições de banco, e validação de dados. Tais limitações são supridas por outras ferramentas, como diagrama entidade, relacionamento e documentos de especificação de requisitos.
 
-`	`No contexto de sistemas orientados a objetos, o uso de ferramentas ORM (Object-relational Mapping) é comum para abstrair os detalhes de como o modelo está sendo representado no banco de dados. As informações de como o modelo será mapeado no banco é adicionado na própria classe por meio do uso de anotações. A principal especificação ORM é o JPA (Java Persistence Application), que fornece uma conjunto de anotações para especificações de restrições de banco e relacionamentos. Neste contexto, a APILang fornece um meio de descrever o modelo de dados agregando informações do diagrama de classe, diagrama de entidade relacionamento e documento de especificação de requisitos.
+No contexto de sistemas orientados a objetos, o uso de ferramentas ORM (Object-relational Mapping) é comum para abstrair os detalhes de como o modelo está sendo representado no banco de dados. As informações de como o modelo será mapeado no banco é adicionado na própria classe por meio do uso de anotações. A principal especificação ORM é o JPA (Java Persistence Application), que fornece uma conjunto de anotações para especificações de restrições de banco e relacionamentos. Neste contexto, a APILang fornece um meio de descrever o modelo de dados agregando informações do diagrama de classe, diagrama de entidade relacionamento e documento de especificação de requisitos.
 
 Além de servir como uma ferramenta de documentação e projeto de modelo de dados. A APILang aproxima a implementação do modelo de uma API da especificação, podendo através do uso de uma linguagem mais "natural" descrever os requisitos e, a partir daí, gerar os modelos da API sem necessariamente compreender a fundo a especificação JPA.
 
@@ -50,12 +50,12 @@ Seria utilizada dentro de um ambiente de desenvolvimento (fábrica de software, 
 Através do uso dessa linguagem, um engenheiro de requisitos, gerente de projeto ou o próprio especialista do domínio, poderia fazer a especificação/descrição ou até mesmo prototipar o modelo de dados, gerando com isso uma maior flexibilidade no processo inicial de desenvolvimento, facilitando também o processo de entendimento dos requisitos necessários pela equipe de desenvolvimento.
 
 
-`	`**Implementação**
+**Implementação**
 
 
 A linguagem foi projetada para ser usada por arquitetos de software para auxiliar na etapa de levantamento de requisitos, onde poderá incluir informações de restrições de dados e relacionamentos. O arquiteto pode especificar que determinada propriedade não pode ser vazia usando a palavra chave **required**, bem como definir a propriedade como única, com a palavra chave **unique**. A linguagem possui um subconjunto dos tipos primitivos básicos da linguagem Java, a Figura 1 mostra a estrutura geral da linguagem APILang.
 
-`	`O tipo de uma propriedade pode ser primitivo, neste caso a propriedade deve ser definida com **property <name> of type <type name>**, ou derivado de outro modelo, **property <name> of model <model name>.**
+O tipo de uma propriedade pode ser primitivo, neste caso a propriedade deve ser definida com **property <name> of type <type name>**, ou derivado de outro modelo, **property <name> of model <model name>.**
 
 ![](Aspose.Words.01dcea6f-bd51-42b5-b923-6ae1dc75bbe9.003.png)
 
@@ -73,10 +73,13 @@ Figura 1: Estrutura da linguagem APILang.
 
 O código gerado contém todos os métodos **getters** e **setters** do modelo, e será criado num caminho especificado em tempo de execução.
 
+```
 java -cp classes:libs/antlr-4.9.1-complete.jar apilang.EvalVisitor <caminho do programa \*.api> <caminho do repositório onde será criado o código>
+```
 
 A gramática definida para a linguagem é:
 
+```
 grammar APILang;
 
 prog: model+ EOF ;
@@ -114,22 +117,25 @@ NAME: [a-zA-Z\_]+ ;
 PACKAGE\_NAME: [a-zA-Z.]+ ;
 
 WS : [ \t\r\n]+ -> skip ;
+```
 
 Exemplo de um programa que define o modelo “Categoria”:
 
-**model Category package br.com.fotonica.apilangtest.model table category schema public primary key id\_category {** 
+```
+model Category package br.com.fotonica.apilangtest.model table category schema public primary key id\_category {** 
 
-`  `**property subcategory of type List<Category>**
+  **property subcategory of type List<Category>**
 
-`  `**property isCategory of type Boolean**
+  **property isCategory of type Boolean**
 
-`  `**property icon of type String**
+  **property icon of type String**
 
-**}** 
-
+}
+```
 O código gerado será: 
 
-**// Arquivo CategoriaModel.java**
+```
+// Arquivo CategoriaModel.java**
 
 **package br.com.fotonica.apilangtest.model;**
 
@@ -195,6 +201,7 @@ O código gerado será:
 `	`**}**
 
 **}**
+```
 
 Conforme pode ser visto no código gerado, não necessariamente as restrições devem ser especificadas. Esta flexibilidade foi pensada para permitir que o arquiteto possa definir as propriedades do modelo durante o levantamento de requisitos e depois refine a descrição do modelo numa etapa seguinte. A definição do nome da tabela, schema e chave primária também é opcional. Neste caso, o programador pode adicionar tais informações direto no código gerado.
 
