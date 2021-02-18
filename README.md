@@ -216,90 +216,91 @@ Para testar a geração de código, escrevemos um programa para especificar as c
 
 Figura 2: Diagrama de domínio de uma api de produtos.
 
+```
+model UnitMeasurement package br.com.fotonica.apilangtest.model table unit\_measurement schema public primary key id\_unit\_measurement {
 
-**model UnitMeasurement package br.com.fotonica.apilangtest.model table unit\_measurement schema public primary key id\_unit\_measurement {**
+  property initials of type String
 
-`  `**property initials of type String**
+  property name of type String
 
-`  `**property name of type String**
+}
 
-**}**
+model ValueWithUnit package br.com.fotonica.apilangtest.model table value\_with\_unit schema public primary key id\_value\_with\_unit { 
 
-**model ValueWithUnit package br.com.fotonica.apilangtest.model table value\_with\_unit schema public primary key id\_value\_with\_unit {** 
+  property value of type Double
 
-`  `**property value of type Double**
+  property unitMeasurement of model UnitMeasurement
 
-`  `**property unitMeasurement of model UnitMeasurement**
+}
 
-**}**
+model Category package br.com.fotonica.apilangtest.model table category schema public primary key id\_category { 
 
-**model Category package br.com.fotonica.apilangtest.model table category schema public primary key id\_category {** 
+  property subcategory of type List<Category>
 
-`  `**property subcategory of type List<Category>**
+  property isCategory of type Boolean
 
-`  `**property isCategory of type Boolean**
+  property icon of type String
 
-`  `**property icon of type String**
+} 
 
-**}** 
+model Brand package br.com.fotonica.apilangtest.model table brand schema public primary key id\_brand { 
 
-**model Brand package br.com.fotonica.apilangtest.model table brand schema public primary key id\_brand {** 
+  property name of type String
 
-`  `**property name of type String**
+  property description of type String
 
-`  `**property description of type String**
+}
 
-**}**
+model Packing package br.com.fotonica.apilangtest.model table packing schema public primary key id\_packing { 
 
-**model Packing package br.com.fotonica.apilangtest.model table packing schema public primary key id\_packing {** 
+  property name of type String
 
-`  `**property name of type String**
+  property description of type String
 
-`  `**property description of type String**
+}
 
-**}**
+model NutritionalInfo package br.com.fotonica.apilangtest.model table nutritional\_info schema public primary key id\_nutritional\_info {
 
-**model NutritionalInfo package br.com.fotonica.apilangtest.model table nutritional\_info schema public primary key id\_nutritional\_info {**
+  property portion of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property portion of model ValueWithUnit with constraint oneToOne joinColumn**
+  property energeticValue of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property energeticValue of model ValueWithUnit with constraint oneToOne joinColumn**
+  property carbohydrate of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property carbohydrate of model ValueWithUnit with constraint oneToOne joinColumn**
+  property protein of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property protein of model ValueWithUnit with constraint oneToOne joinColumn**
+  property totalFat of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property totalFat of model ValueWithUnit with constraint oneToOne joinColumn**
+  property saturatedFat of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property saturatedFat of model ValueWithUnit with constraint oneToOne joinColumn**
+  property transFat of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property transFat of model ValueWithUnit with constraint oneToOne joinColumn**
+  property sodium of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property sodium of model ValueWithUnit with constraint oneToOne joinColumn**
+  property calcium of model ValueWithUnit with constraint oneToOne joinColumn
 
-`  `**property calcium of model ValueWithUnit with constraint oneToOne joinColumn**
+}
 
-**}**
+model Product package br.com.fotonica.apilangtest.model table product schema public primary key id\_product { 
 
-**model Product package br.com.fotonica.apilangtest.model table product schema public primary key id\_product {** 
+  property name of type String with constraint unique
 
-`  `**property name of type String with constraint unique**
+  property description of type String
 
-`  `**property description of type String**
+  property barCode of type String
 
-`  `**property barCode of type String**
+  property weight of model ValueWithUnit
 
-`  `**property weight of model ValueWithUnit**
+  property storageTips of type String
 
-`  `**property storageTips of type String**
+  property category of model Category 
 
-`  `**property category of model Category** 
+  property packing of model Packing
 
-`  `**property packing of model Packing**
+  property nutritionalInfo of model NutritionalInfo
 
-`  `**property nutritionalInfo of model NutritionalInfo**
-
-**}**
+}
+```
 
 O código em APILang encontra-se disponível no GitHub já informado em: **src/resources/api1.api**. 
 
