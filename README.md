@@ -1,4 +1,4 @@
-﻿![](Aspose.Words.01dcea6f-bd51-42b5-b923-6ae1dc75bbe9.001.png)![](Aspose.Words.01dcea6f-bd51-42b5-b923-6ae1dc75bbe9.002.jpeg)
+![](Aspose.Words.01dcea6f-bd51-42b5-b923-6ae1dc75bbe9.001.png)![](Aspose.Words.01dcea6f-bd51-42b5-b923-6ae1dc75bbe9.002.jpeg)
 
 UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE
 
@@ -86,27 +86,27 @@ prog: model+ EOF ;
 
 model: 'model' NAME                          # modelName
 
-` `| model 'package' PACKAGE\_NAME              # modelPackageName
+| model 'package' PACKAGE\_NAME              # modelPackageName
 
-` `| model 'table' NAME                        # modelTableName
+| model 'table' NAME                        # modelTableName
 
-` `| model 'schema' NAME                       # modelSchemaName
+| model 'schema' NAME                       # modelSchemaName
 
-` `| model 'primary key' NAME                  # modelPrimaryKeyName
+| model 'primary key' NAME                  # modelPrimaryKeyName
 
-` `| model '{' property+ '}'                   # modelProperties
+| model '{' property+ '}'                   # modelProperties
 
-` `;
+;
 
 property: 'property' NAME                     # propertyDef
 
-` `| property 'of type' TYPE                   # primitiveTypeDef
+| property 'of type' TYPE                   # primitiveTypeDef
 
-` `| property 'of model' NAME                  # definedModelDef
+| property 'of model' NAME                  # definedModelDef
 
-` `| property 'with constraint' constraints+   # constraintsDef
+| property 'with constraint' constraints+   # constraintsDef
 
-` `;
+;
 
 constraints: 'required' | 'unique' | 'oneToMany' | 'manyToMany' | 'manyToOne' | 'oneToOne' | 'joinColumn' ;
 
@@ -137,70 +137,70 @@ O código gerado será:
 ```
 // Arquivo CategoriaModel.java**
 
-**package br.com.fotonica.apilangtest.model;**
+package br.com.fotonica.apilangtest.model;
 
-**import javax.persistence.AttributeOverride;**
+import javax.persistence.AttributeOverride;
 
-**import javax.persistence.Column;**
+import javax.persistence.Column;
 
-**import javax.persistence.Table;**
+import javax.persistence.Table;
 
-**import java.util.List;**
-
-
-**import br.com.fotonica.core.GenericEntity;**
-
-**@Table(name = "category", schema = "public")**
-
-**@AttributeOverride(name = "id", column = @Column(name = "id\_category"))**
-
-**public class CategoryModel extends GenericEntity {**
-
-`  	`**private List<CategoryModel> subcategory;**
-
-`	`**private Boolean isCategory;**
-
-`	`**private String icon;**
+import java.util.List;
 
 
+import br.com.fotonica.core.GenericEntity;
 
-`  	`**public List<CategoryModel> getSubcategory(){**
+@Table(name = "category", schema = "public")
 
-`		`**return this.subcategory;**
+@AttributeOverride(name = "id", column = @Column(name = "id\_category"))
 
-`	`**}**
+public class CategoryModel extends GenericEntity {
 
-`	`**public void setSubcategory(List<CategoryModel> subcategory){**
+private List<CategoryModel> subcategory;
 
-`		`**this.subcategory = subcategory;**
+private Boolean isCategory;
 
-`	`**}**
+private String icon;
 
-`	`**public Boolean getIsCategory(){**
 
-`		`**return this.isCategory;**
 
-`	`**}**
+public List<CategoryModel> getSubcategory(){
 
-`	`**public void setIsCategory(Boolean isCategory){**
+  return this.subcategory;
 
-`		`**this.isCategory = isCategory;**
+}
 
-`	`**}**
+public void setSubcategory(List<CategoryModel> subcategory){
 
-`	`**public String getIcon(){**
+  this.subcategory = subcategory;
 
-`		`**return this.icon;**
+}
 
-`	`**}**
+public Boolean getIsCategory(){
 
-`	`**public void setIcon(String icon){**
+  return this.isCategory;
 
-`		`**this.icon = icon;**
+}
 
-`	`**}**
+public void setIsCategory(Boolean isCategory){
 
-**}**
+  this.isCategory = isCategory;
+
+}
+
+public String getIcon(){
+
+  return this.icon;
+
+}
+
+public void setIcon(String icon){
+
+  this.icon = icon;
+
+}
+
+}
 ```
 
 Conforme pode ser visto no código gerado, não necessariamente as restrições devem ser especificadas. Esta flexibilidade foi pensada para permitir que o arquiteto possa definir as propriedades do modelo durante o levantamento de requisitos e depois refine a descrição do modelo numa etapa seguinte. A definição do nome da tabela, schema e chave primária também é opcional. Neste caso, o programador pode adicionar tais informações direto no código gerado.
@@ -210,7 +210,7 @@ Conforme pode ser visto no código gerado, não necessariamente as restrições 
 
 O código da linguagem encontra-se disponível no GitHub através do link <https://github.com/talisonfc/apilang>. A implementação do compilador encontra-se dentro do diretório **src/main** e os arquivos de programa para teste em **src/resources**. Ver os arquivos de teste **api1.api** e **api2.api**.
 **
-`	`Para testar a geração de código, escrevemos um programa para especificar as classes de domínio do modelo mostrado na Figura 2.
+Para testar a geração de código, escrevemos um programa para especificar as classes de domínio do modelo mostrado na Figura 2.
 
 ![](Aspose.Words.01dcea6f-bd51-42b5-b923-6ae1dc75bbe9.004.png)
 
