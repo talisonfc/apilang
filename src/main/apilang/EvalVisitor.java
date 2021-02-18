@@ -9,7 +9,7 @@ public class EvalVisitor{
 
   public static void main(String[] args) throws Exception {
 
-    System.setProperty("BASE_DIR", "/Users/talisoncosta/eclipse-workspace/apilangtest/src/main/java/br/com/fotonica/apilangtest/model/");
+    // System.setProperty("BASE_DIR", "/Users/talisoncosta/eclipse-workspace/apilangtest/src/main/java/br/com/fotonica/apilangtest/model/");
 
     CharStream input;
     if (args.length > 0)
