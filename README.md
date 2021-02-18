@@ -322,19 +322,3 @@ A APILang apresenta como funcionalidade a geração de código do modelo de dado
 
 Para trabalhos futuros a APILang deve suportar a geração de código das classes controle para especificação das interfaces da API e das classes de serviços para interagir com o banco de dados.
 
-
-# apilang
-APILang it's a DSL to create REST API from description model written in natural language
-
-
-Compilar
-
-```java
-  javac -d classes -cp classes:libs/antlr-4.9.1-complete.jar src/main/apilang/EvalVisitor.java
-```
-
-Executar EvalVisitor
-
-```java
-  java -cp classes apilang.EvalVisitor ./src/main/apilang/templates/ModelTemplate.java
-```
