@@ -1,110 +1,52 @@
-<!-- Output copied to clipboard! -->
-
-<!-----
-NEW: Check the "Suppress top comment" option to remove this info from the output.
-
-Conversion time: 1.397 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β29
-* Thu Feb 18 2021 15:11:16 GMT-0800 (PST)
-* Source doc: trabalho final
-* This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
-
------>
-
-
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 2.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
 
 UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE
+PROGRAMA DE PÓS-GRADUAÇÃO EM TECNOLOGIA DA INFORMAÇÃO
+LINGUAGENS DE DOMÍNIO ESPECÍFICO
 
+Autores:
+Talison Fernandes Costa
+Honoré Vicente Cesário
 
-            PROGRAMA DE PÓS-GRADUAÇÃO EM TECNOLOGIA DA INFORMAÇÃO
+**NATAL FEVEREIRO/ 2021**
 
+# Objetivos
 
-            LINGUAGENS DE DOMÍNIO ESPECÍFICO
+O objetivo da linguagem APILang é gerar as classes de modelo de uma API, com anotações JPA (Java Persistence Application), a partir das especificações de restrições e relacionamentos especificados nos requisitos da aplicação. A linguagem deve servir para descrever o domínio de uma API e gerar a versão inicial das classes de modelo.
 
+# Motivação
 
-    **TRABALHO FINAL**
+O diagrama de classe permite especificar as propriedades e métodos de um determinado modelo, porém não fornece meios para descrever restrições de banco, e validação de dados. Tais limitações são supridas por outras ferramentas, como diagrama entidade, relacionamento e documentos de especificação de requisitos.
 
-
-    <p style="text-align: right">
-Talison Fernandes Costa</p>
-
-
-
-    <p style="text-align: right">
-Honoré Vicente Cesário</p>
-
-
-
-    **NATAL**
-
-
-    **FEVEREIRO/ 2021**
-
-**	Objetivos **
-
-	 \
-	O objetivo da linguagem APILang é gerar as classes de modelo de uma API, com anotações JPA (Java Persistence Application), a partir das especificações de restrições e relacionamentos especificados nos requisitos da aplicação. A linguagem deve servir para descrever o domínio de uma API e gerar a versão inicial das classes de modelo.
-
-**Motivação**
-
-	O diagrama de classe permite especificar as propriedades e métodos de um determinado modelo, porém não fornece meios para descrever restrições de banco, e validação de dados. Tais limitações são supridas por outras ferramentas, como diagrama entidade, relacionamento e documentos de especificação de requisitos.
-
-	No contexto de sistemas orientados a objetos, o uso de ferramentas ORM (Object-relational Mapping) é comum para abstrair os detalhes de como o modelo está sendo representado no banco de dados. As informações de como o modelo será mapeado no banco é adicionado na própria classe por meio do uso de anotações. A principal especificação ORM é o JPA (Java Persistence Application), que fornece uma conjunto de anotações para especificações de restrições de banco e relacionamentos. Neste contexto, a APILang fornece um meio de descrever o modelo de dados agregando informações do diagrama de classe, diagrama de entidade relacionamento e documento de especificação de requisitos.
+No contexto de sistemas orientados a objetos, o uso de ferramentas ORM (Object-relational Mapping) é comum para abstrair os detalhes de como o modelo está sendo representado no banco de dados. As informações de como o modelo será mapeado no banco é adicionado na própria classe por meio do uso de anotações. A principal especificação ORM é o JPA (Java Persistence Application), que fornece uma conjunto de anotações para especificações de restrições de banco e relacionamentos. Neste contexto, a APILang fornece um meio de descrever o modelo de dados agregando informações do diagrama de classe, diagrama de entidade relacionamento e documento de especificação de requisitos.
 
 Além de servir como uma ferramenta de documentação e projeto de modelo de dados. A APILang aproxima a implementação do modelo de uma API da especificação, podendo através do uso de uma linguagem mais "natural" descrever os requisitos e, a partir daí, gerar os modelos da API sem necessariamente compreender a fundo a especificação JPA.
 
-**Contexto**
+# Contexto
 
 Seria utilizada dentro de um ambiente de desenvolvimento (fábrica de software, por exemplo), por engenheiros de requisitos, para descrever modelos de dados com restrições de banco, validação de entrada, e definição de relacionamentos.
 
 Através do uso dessa linguagem, um engenheiro de requisitos, gerente de projeto ou o próprio especialista do domínio, poderia fazer a especificação/descrição ou até mesmo prototipar o modelo de dados, gerando com isso uma maior flexibilidade no processo inicial de desenvolvimento, facilitando também o processo de entendimento dos requisitos necessários pela equipe de desenvolvimento.
 
-	**Implementação**
+# Implementação
 
 A linguagem foi projetada para ser usada por arquitetos de software para auxiliar na etapa de levantamento de requisitos, onde poderá incluir informações de restrições de dados e relacionamentos. O arquiteto pode especificar que determinada propriedade não pode ser vazia usando a palavra chave **required**, bem como definir a propriedade como única, com a palavra chave **unique**. A linguagem possui um subconjunto dos tipos primitivos básicos da linguagem Java, a Figura 1 mostra a estrutura geral da linguagem APILang.
 
-	O tipo de uma propriedade pode ser primitivo, neste caso a propriedade deve ser definida com **property &lt;name> of type &lt;type name>**, ou derivado de outro modelo, **property &lt;name> of model &lt;model name>.**
-
-
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
+O tipo de uma propriedade pode ser primitivo, neste caso a propriedade deve ser definida com **property &lt;name> of type &lt;type name>**, ou derivado de outro modelo, **property &lt;name> of model &lt;model name>.**
 
 
 Figura 1: Estrutura da linguagem APILang.
 
-**	**As restrições aceita pela linguagem são:
+## As restrições aceita pela linguagem são:
 
 
 
-*   **unique **- define a propriedade com valor único, o código gerado vai anotar a propriedade com @Column(unique = true), criando uma restrição de banco que impede a repetição de dados para esta propriedade.
-*   **required **- define a propriedade como obrigatório, logo não será possível salvar os dados sem definir um valor para esta propriedade. O código gerado vai anotar a propriedade como @NotNull.
-*   **oneToOne **- define um relacionamento de um para um entre dois modelos, @OneToOne.
-*   **oneToMany **- define um relacionamento de um para muitos entre dois modelos, @OneToMany.
-*   **manyToMany **- define um relacionamento de muitos para muitos entre dois modelos, @ManyToMany.
-*   **manyToOne **- define um relacionamento de muitos para um entre dois modelos, @ManyToOne.
-*   **joinColumn **- define detalhes de uma coluna com a anotação @JoinColumn.
+- **unique **- define a propriedade com valor único, o código gerado vai anotar a propriedade com @Column(unique = true), criando uma restrição de banco que impede a repetição de dados para esta propriedade.
+-  **required **- define a propriedade como obrigatório, logo não será possível salvar os dados sem definir um valor para esta propriedade. O código gerado vai anotar a propriedade como @NotNull.
+-   **oneToOne **- define um relacionamento de um para um entre dois modelos, @OneToOne.
+-   **oneToMany **- define um relacionamento de um para muitos entre dois modelos, @OneToMany.
+-   **manyToMany **- define um relacionamento de muitos para muitos entre dois modelos, @ManyToMany.
+-   **manyToOne **- define um relacionamento de muitos para um entre dois modelos, @ManyToOne.
+-   **joinColumn **- define detalhes de uma coluna com a anotação @JoinColumn.
 
 O código gerado contém todos os métodos **getters** e **setters** do modelo, e será criado num caminho especificado em tempo de execução.
 
@@ -215,18 +157,11 @@ public class CategoryModel extends GenericEntity {
 
 Conforme pode ser visto no código gerado, não necessariamente as restrições devem ser especificadas. Esta flexibilidade foi pensada para permitir que o arquiteto possa definir as propriedades do modelo durante o levantamento de requisitos e depois refine a descrição do modelo numa etapa seguinte. A definição do nome da tabela, schema e chave primária também é opcional. Neste caso, o programador pode adicionar tais informações direto no código gerado.
 
-**Testes**
+# Testes
 
 O código da linguagem encontra-se disponível no GitHub através do link [https://github.com/talisonfc/apilang](https://github.com/talisonfc/apilang). A implementação do compilador encontra-se dentro do diretório **src/main** e os arquivos de programa para teste em **src/resources**. Ver os arquivos de teste **api1.api** e **api2.api**.
 
-**	**Para testar a geração de código, escrevemos um programa para especificar as classes de domínio do modelo mostrado na Figura 2.
-
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
+Para testar a geração de código, escrevemos um programa para especificar as classes de domínio do modelo mostrado na Figura 2.
 
 
 Figura 2: Diagrama de domínio de uma api de produtos.
@@ -300,7 +235,7 @@ Executando o comando “**<code>java -cp classes:libs/antlr-4.9.1-complete.jar a
 
 O conteúdo destes arquivos pode ser visto no GitHub no diretório **src/resources/output**.
 
-**Funcionalidades**
+# Funcionalidades
 
 A APILang apresenta como funcionalidade a geração de código do modelo de dados em Java com anotações JPA. O código em APILang possui uma sintaxe próxima da linguagem natural, e agrega informações dos modelos de dados especificados em UML através do Diagrama de Classe (DC), e do diagrama Entidade Relacionamento (ER). Portanto, especificando o modelo em APILang, o analista consegue reunir num mesmo arquivo informações de relacionamentos, restrições de banco e validações de dados, eliminando a necessidade do uso do diagrama ER e DC.
 
