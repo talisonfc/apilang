@@ -313,3 +313,20 @@ O conteúdo destes arquivos pode ser visto no GitHub no diretório **src/resourc
 A APILang apresenta como funcionalidade a geração de código do modelo de dados em Java com anotações JPA. O código em APILang possui uma sintaxe próxima da linguagem natural, e agrega informações dos modelos de dados especificados em UML através do Diagrama de Classe (DC), e do diagrama Entidade Relacionamento (ER). Portanto, especificando o modelo em APILang, o analista consegue reunir num mesmo arquivo informações de relacionamentos, restrições de banco e validações de dados, eliminando a necessidade do uso do diagrama ER e DC.
 
 Para trabalhos futuros a APILang deve suportar a geração de código das classes controle para especificação das interfaces da API e das classes de serviços para interagir com o banco de dados.
+
+
+# apilang
+APILang it's a DSL to create REST API from description model written in natural language
+
+
+Compilar
+
+```java
+  javac -d classes -cp classes:libs/antlr-4.9.1-complete.jar src/main/apilang/EvalVisitor.java
+```
+
+Executar EvalVisitor
+
+```java
+  java -cp classes apilang.EvalVisitor ./src/main/apilang/templates/ModelTemplate.java
+```
