@@ -77,6 +77,18 @@ public interface APILangListener extends ParseTreeListener {
 	 */
 	void exitModelSchemaName(APILangParser.ModelSchemaNameContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code modelPrimaryKeyName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void enterModelPrimaryKeyName(APILangParser.ModelPrimaryKeyNameContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code modelPrimaryKeyName}
+	 * labeled alternative in {@link APILangParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void exitModelPrimaryKeyName(APILangParser.ModelPrimaryKeyNameContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code definedModelDef}
 	 * labeled alternative in {@link APILangParser#property}.
 	 * @param ctx the parse tree

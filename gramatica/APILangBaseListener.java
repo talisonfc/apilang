@@ -87,6 +87,18 @@ public class APILangBaseListener implements APILangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterModelPrimaryKeyName(APILangParser.ModelPrimaryKeyNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitModelPrimaryKeyName(APILangParser.ModelPrimaryKeyNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDefinedModelDef(APILangParser.DefinedModelDefContext ctx) { }
 	/**
 	 * {@inheritDoc}

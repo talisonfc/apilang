@@ -18,8 +18,8 @@ public class APILangParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, TYPE=17, 
-		NAME=18, PACKAGE_NAME=19, WS=20;
+		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
+		T__17=18, TYPE=19, NAME=20, PACKAGE_NAME=21, WS=22;
 	public static final int
 		RULE_prog = 0, RULE_model = 1, RULE_property = 2, RULE_constraints = 3;
 	private static String[] makeRuleNames() {
@@ -33,14 +33,16 @@ public class APILangParser extends Parser {
 		return new String[] {
 			null, "'model'", "'package'", "'table'", "'schema'", "'primary key'", 
 			"'{'", "'}'", "'property'", "'of type'", "'of model'", "'with constraint'", 
-			"'required'", "'unique'", "'oneToMany'", "'manyToMany'", "'manyToOne'"
+			"'required'", "'unique'", "'oneToMany'", "'manyToMany'", "'manyToOne'", 
+			"'oneToOne'", "'joinColumn'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, null, "TYPE", "NAME", "PACKAGE_NAME", "WS"
+			null, null, null, null, null, null, null, "TYPE", "NAME", "PACKAGE_NAME", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -657,7 +659,7 @@ public class APILangParser extends Parser {
 			{
 			setState(67);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -715,22 +717,22 @@ public class APILangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26H\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\30H\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\3\2\6\2\f\n\2\r\2\16\2\r\3\2\3\2\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\6\3%\n\3\r"+
 		"\3\16\3&\3\3\3\3\7\3+\n\3\f\3\16\3.\13\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
 		"\4\3\4\3\4\3\4\3\4\3\4\6\4=\n\4\r\4\16\4>\7\4A\n\4\f\4\16\4D\13\4\3\5"+
-		"\3\5\3\5\2\4\4\6\6\2\4\6\b\2\3\3\2\16\22\2N\2\13\3\2\2\2\4\21\3\2\2\2"+
+		"\3\5\3\5\2\4\4\6\6\2\4\6\b\2\3\3\2\16\24\2N\2\13\3\2\2\2\4\21\3\2\2\2"+
 		"\6/\3\2\2\2\bE\3\2\2\2\n\f\5\4\3\2\13\n\3\2\2\2\f\r\3\2\2\2\r\13\3\2\2"+
 		"\2\r\16\3\2\2\2\16\17\3\2\2\2\17\20\7\2\2\3\20\3\3\2\2\2\21\22\b\3\1\2"+
-		"\22\23\7\3\2\2\23\24\7\24\2\2\24,\3\2\2\2\25\26\f\7\2\2\26\27\7\4\2\2"+
-		"\27+\7\25\2\2\30\31\f\6\2\2\31\32\7\5\2\2\32+\7\24\2\2\33\34\f\5\2\2\34"+
-		"\35\7\6\2\2\35+\7\24\2\2\36\37\f\4\2\2\37 \7\7\2\2 +\7\24\2\2!\"\f\3\2"+
+		"\22\23\7\3\2\2\23\24\7\26\2\2\24,\3\2\2\2\25\26\f\7\2\2\26\27\7\4\2\2"+
+		"\27+\7\27\2\2\30\31\f\6\2\2\31\32\7\5\2\2\32+\7\26\2\2\33\34\f\5\2\2\34"+
+		"\35\7\6\2\2\35+\7\26\2\2\36\37\f\4\2\2\37 \7\7\2\2 +\7\26\2\2!\"\f\3\2"+
 		"\2\"$\7\b\2\2#%\5\6\4\2$#\3\2\2\2%&\3\2\2\2&$\3\2\2\2&\'\3\2\2\2\'(\3"+
 		"\2\2\2()\7\t\2\2)+\3\2\2\2*\25\3\2\2\2*\30\3\2\2\2*\33\3\2\2\2*\36\3\2"+
 		"\2\2*!\3\2\2\2+.\3\2\2\2,*\3\2\2\2,-\3\2\2\2-\5\3\2\2\2.,\3\2\2\2/\60"+
-		"\b\4\1\2\60\61\7\n\2\2\61\62\7\24\2\2\62B\3\2\2\2\63\64\f\5\2\2\64\65"+
-		"\7\13\2\2\65A\7\23\2\2\66\67\f\4\2\2\678\7\f\2\28A\7\24\2\29:\f\3\2\2"+
+		"\b\4\1\2\60\61\7\n\2\2\61\62\7\26\2\2\62B\3\2\2\2\63\64\f\5\2\2\64\65"+
+		"\7\13\2\2\65A\7\25\2\2\66\67\f\4\2\2\678\7\f\2\28A\7\26\2\29:\f\3\2\2"+
 		":<\7\r\2\2;=\5\b\5\2<;\3\2\2\2=>\3\2\2\2><\3\2\2\2>?\3\2\2\2?A\3\2\2\2"+
 		"@\63\3\2\2\2@\66\3\2\2\2@9\3\2\2\2AD\3\2\2\2B@\3\2\2\2BC\3\2\2\2C\7\3"+
 		"\2\2\2DB\3\2\2\2EF\t\2\2\2F\t\3\2\2\2\t\r&*,>@B";

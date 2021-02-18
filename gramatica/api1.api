@@ -10,5 +10,5 @@ model Product package br.com.fotonica.apilangtest.model {
 
 model ShopCart package br.com.fotonica.apilangtest.model {
   property orders of type List<Product> with constraint manyToMany
-  property customer of model Customer
+  property customer of model Customer with constraint joinColumn {name = customer unique = true}
 }

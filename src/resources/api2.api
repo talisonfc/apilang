@@ -1,0 +1,11 @@
+model NutritionalInfo package br.com.fotonica.apilangtest.model {
+  property portion of model ValueWithUnit with constraint oneToOne
+  property energeticValue of model ValueWithUnit with constraint oneToOne
+  property carbohydrate of model ValueWithUnit with constraint oneToOne
+  property protein of model ValueWithUnit with constraint oneToOne
+  property totalFat of model ValueWithUnit with constraint oneToOne
+  property saturatedFat of model ValueWithUnit with constraint oneToOne
+  property transFat of model ValueWithUnit with constraint oneToOne
+  property sodium of model ValueWithUnit with constraint oneToOne
+  property calcium of model ValueWithUnit with constraint oneToOne
+}

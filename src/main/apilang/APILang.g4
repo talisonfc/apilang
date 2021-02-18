@@ -16,7 +16,7 @@ property: 'property' NAME                     # propertyDef
   | property 'with constraint' constraints+   # constraintsDef
   ;
 
-constraints: 'required' | 'unique' | 'oneToMany' | 'manyToMany' | 'manyToOne' ;
+constraints: 'required' | 'unique' | 'oneToMany' | 'manyToMany' | 'manyToOne' | 'oneToOne' | 'joinColumn' ;
 
 TYPE: 'String' | 'Integer' | 'Boolean' | 'Double' | 'List<'NAME'>' ;
 

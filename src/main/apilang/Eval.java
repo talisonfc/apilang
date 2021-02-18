@@ -23,12 +23,16 @@ public class Eval extends APILangBaseVisitor<String> {
     mapConstraint.put("oneToMany", "@OnToMany()");
     mapConstraint.put("manyToMany", "@ManyToMany()");
     mapConstraint.put("manyToOne", "@ManyToMany()");
+    mapConstraint.put("oneToOne", "@OneToOne()");
+    mapConstraint.put("joinColumn", "@JoinColumn()");
 
     mapDependency.put("required", "import javax.validation.constraints.NotNull;");
     mapDependency.put("oneToMany", "import javax.persistence.OneToMany;");
     mapDependency.put("manyToMany", "import javax.persistence.ManyToMany;");
     mapDependency.put("manyToOne", "import javax.persistence.ManyToOne;");
+    mapDependency.put("oneToOne", "import javax.persistence.OneToOne;");
     mapDependency.put("List", "import java.util.List;");
+    mapDependency.put("joinColumn", "import javax.persistence.JoinColumn;");
   }
 
   public String visitProg(APILangParser.ProgContext ctx) {
@@ -127,7 +131,9 @@ public class Eval extends APILangBaseVisitor<String> {
 
   public String visitDefinedModelDef(APILangParser.DefinedModelDefContext ctx) { 
     String propName = visit(ctx.property());
-    return "\t" + String.format("private %sModel %s;\n", ctx.NAME().getText(), propName);
+    String type = ctx.NAME().getText() + "Model";
+    currentProperties.add(new Property(propName, type));
+    return "\t" + String.format("private %s %s;\n", type, propName);
   }
 
   public String visitConstraintsDef(APILangParser.ConstraintsDefContext ctx){
@@ -158,8 +164,10 @@ public class Eval extends APILangBaseVisitor<String> {
   }
 
   public void addDependency(String name){
-    if(mapDependency.get(name) != null){
-      dependencies += mapDependency.get(name) + "\n";
+    String dependency = mapDependency.get(name);
+    if(dependency != null){
+      if(!dependencies.contains(dependency))
+        dependencies += mapDependency.get(name) + "\n";
     }
   }
 }
