@@ -32,7 +32,7 @@ Honoré Vicente Cesário
 **Objetivos** 
 
 
-O objetivo da linguagem APILang é gerar as classes de modelo de uma API, com anotações JPA (Java Persistence Application), a partir das especificações de restrições e relacionamentos especificados nos requisitos da aplicação. A linguagem deve servir para descrever o domínio de uma API e gerar a versão inicial das classes de modelo.
+O objetivo da linguagem APILang é gerar as classes de modelo de uma API, com anotações JPA (Java Persistence Application), a partir das especificações de restrições e relacionamentos definidas nos requisitos da aplicação. A linguagem deve servir para descrever o domínio de uma API e gerar a versão inicial das classes de modelo.
 
 **Motivação**
 
