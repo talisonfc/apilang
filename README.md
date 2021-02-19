@@ -36,7 +36,7 @@ O objetivo da linguagem APILang é gerar as classes de modelo de uma API, com an
 
 **Motivação**
 
-O diagrama de classe permite especificar as propriedades e métodos de um determinado modelo, porém não fornece meios para descrever restrições de banco, e validação de dados. Tais limitações são supridas por outras ferramentas, como diagrama entidade, relacionamento e documentos de especificação de requisitos.
+O Diagrama de Classe (DC) permite especificar as propriedades e métodos de um determinado modelo, porém não fornece meios para descrever restrições de banco, e validação de dados. Tais limitações são supridas por outras ferramentas, como diagrama Entidade Relacionamento (ER) e documentos de especificação de requisitos.
 
 No contexto de sistemas orientados a objetos, o uso de ferramentas ORM (Object-relational Mapping) é comum para abstrair os detalhes de como o modelo está sendo representado no banco de dados. As informações de como o modelo será mapeado no banco é adicionado na própria classe por meio do uso de anotações. A principal especificação ORM é o JPA (Java Persistence Application), que fornece uma conjunto de anotações para especificações de restrições de banco e relacionamentos. Neste contexto, a APILang fornece um meio de descrever o modelo de dados agregando informações do diagrama de classe, diagrama de entidade relacionamento e documento de especificação de requisitos.
 
