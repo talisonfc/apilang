@@ -61,7 +61,7 @@ O tipo de uma propriedade pode ser primitivo, neste caso a propriedade deve ser 
 
 Figura 1: Estrutura da linguagem APILang.
 
-**	As restrições aceita pela linguagem são:
+As restrições aceita pela linguagem são:
 
 - **unique** - define a propriedade com valor único, o código gerado vai anotar a propriedade com @Column(unique = true), criando uma restrição de banco que impede a repetição de dados para esta propriedade.
 - **required** - define a propriedade como obrigatório, logo não será possível salvar os dados sem definir um valor para esta propriedade. O código gerado vai anotar a propriedade como @NotNull.
@@ -71,13 +71,13 @@ Figura 1: Estrutura da linguagem APILang.
 - **manyToOne** - define um relacionamento de muitos para um entre dois modelos, @ManyToOne.
 - **joinColumn** - define detalhes de uma coluna com a anotação @JoinColumn.
 
-O código gerado contém todos os métodos **getters** e **setters** do modelo, e será criado num caminho especificado em tempo de execução.
+O código gerado contém todos os métodos **getters** e **setters** do modelo, e será criado no caminho especificado em tempo de execução. Para compilar o programa, executar o seguinte comando:
 
 ```
 java -cp classes:libs/antlr-4.9.1-complete.jar apilang.EvalVisitor <caminho do programa \*.api> <caminho do repositório onde será criado o código>
 ```
 
-A gramática definida para a linguagem é:
+**Gramática da linguagem**
 
 ```
 grammar APILang;
@@ -132,6 +132,7 @@ model Category package br.com.fotonica.apilangtest.model table category schema p
 
 }
 ```
+
 O código gerado será: 
 
 ```
@@ -205,11 +206,10 @@ public void setIcon(String icon){
 
 Conforme pode ser visto no código gerado, não necessariamente as restrições devem ser especificadas. Esta flexibilidade foi pensada para permitir que o arquiteto possa definir as propriedades do modelo durante o levantamento de requisitos e depois refine a descrição do modelo numa etapa seguinte. A definição do nome da tabela, schema e chave primária também é opcional. Neste caso, o programador pode adicionar tais informações direto no código gerado.
 
+**Implementação da linguagem**
 
-**Testes**
+A implementação do compilador encontra-se dentro do diretório **src/main** e os arquivos de programa para teste em **src/resources**. Ver os arquivos de teste **api1.api** e **api2.api**.
 
-O código da linguagem encontra-se disponível no GitHub através do link <https://github.com/talisonfc/apilang>. A implementação do compilador encontra-se dentro do diretório **src/main** e os arquivos de programa para teste em **src/resources**. Ver os arquivos de teste **api1.api** e **api2.api**.
-**
 Para testar a geração de código, escrevemos um programa para especificar as classes de domínio do modelo mostrado na Figura 2.
 
 ![](Aspose.Words.01dcea6f-bd51-42b5-b923-6ae1dc75bbe9.004.png)
@@ -302,9 +302,9 @@ model Product package br.com.fotonica.apilangtest.model table product schema pub
 }
 ```
 
-O código em APILang encontra-se disponível no GitHub já informado em: **src/resources/api1.api**. 
+Este trecho de código encontra-se disponível em: **src/resources/api1.api**. 
 
-Executando o comando “**java -cp classes:libs/antlr-4.9.1-complete.jar apilang.EvalVisitor src/resources/api1.api**” o compilador gerou os seguintes arquivos:
+Executando o comando **java -cp classes:libs/antlr-4.9.1-complete.jar apilang.EvalVisitor src/resources/api1.api** o compilador gerou os seguintes arquivos:
 
 - BrandModel.java
 - CategoryModel.java
@@ -314,11 +314,13 @@ Executando o comando “**java -cp classes:libs/antlr-4.9.1-complete.jar apilang
 - UnitMeasurementModel.java
 - ValueWithUnitModel.java
 
-O conteúdo destes arquivos pode ser visto no GitHub no diretório **src/resources/output**.
+O conteúdo destes arquivos pode ser visto em **src/resources/output**.
 
 **Funcionalidades**
 
 A APILang apresenta como funcionalidade a geração de código do modelo de dados em Java com anotações JPA. O código em APILang possui uma sintaxe próxima da linguagem natural, e agrega informações dos modelos de dados especificados em UML através do Diagrama de Classe (DC), e do diagrama Entidade Relacionamento (ER). Portanto, especificando o modelo em APILang, o analista consegue reunir num mesmo arquivo informações de relacionamentos, restrições de banco e validações de dados, eliminando a necessidade do uso do diagrama ER e DC.
 
-Para trabalhos futuros a APILang deve suportar a geração de código das classes controle para especificação das interfaces da API e das classes de serviços para interagir com o banco de dados.
+**Trabalhos futuros**
+
+Para trabalhos futuros a APILang deve suportar a geração de código das classes controle para especificação das interfaces da API, das classes de serviços para interagir com o banco de dados, e documentação da API em OpenAPI.
 
